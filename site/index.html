@@ -5,38 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Martín Jesús Chipoco — Portfolio</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; }
-    header { margin-bottom: 1.5rem; }
-    h1 { margin: 0; font-size: 1.8rem; }
-    .links a { margin-right: 1rem; }
-    .card { border: 1px solid #eee; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; }
-    .cta { display: inline-block; padding: .6rem 1rem; border: 1px solid #333; border-radius: 999px; text-decoration: none; }
+    :root { --bg:#0c0f13; --fg:#e8edf3; --muted:#9aa4b2; --card:#12161b; --line:#222831; --brand:#5aa9ff; --accent:#9bffb0; }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1200px 800px at 20% -10%, #11151b 0%, #0c0f13 60%, #0a0c10 100%);color:var(--fg);font-family:ui-sans-serif,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif}
+    .wrap{max-width:980px;margin:0 auto;padding:32px 20px 60px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .title h1{margin:0;font-size:1.85rem;letter-spacing:.2px}
+    .title p{margin:6px 0 0;color:var(--muted)}
+    .links a{color:var(--fg);text-decoration:none;padding:8px 12px;border:1px solid var(--line);border-radius:10px;transition:transform .12s ease,background .2s ease,border-color .2s ease;display:inline-block;margin-left:8px}
+    .links a:hover{transform:translateY(-1px);border-color:#2a3038;background:#0f141a}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;text-decoration:none;color:#0b0d10;font-weight:600;background:var(--brand);box-shadow:0 6px 18px rgba(90,169,255,.35);border:1px solid rgba(255,255,255,.12)}
+    .cta:hover{filter:brightness(1.05)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px 18px 20px;box-shadow:0 0 0 1px rgba(0,0,0,.4) inset,0 12px 30px rgba(0,0,0,.2)}
+    h2{margin:4px 0 8px;font-size:1.1rem;letter-spacing:.3px}
+    ul{margin:8px 0 0 18px;color:var(--muted)}
+    .badge{display:inline-block;font-size:.9rem;color:#0b0d10;background:var(--accent);border-radius:999px;padding:6px 10px;font-weight:600}
+    footer{margin-top:26px;color:var(--muted);font-size:.95rem}
+    @media (max-width: 860px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}.links a{margin:8px 8px 0 0}}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Martín Jesús Chipoco</h1>
-    <p>Computer Engineer & Software Architect</p>
-    <div class="links">
-      <a href="mailto:martinchipoco@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/mart%C3%ADn-jes%C3%BAs-chipoco/">LinkedIn</a>
-      <a href="https://github.com/Noothowl">GitHub</a>
-      <a class="cta" href="./assets/martinchipoco.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Martín Jesús Chipoco</h1>
+        <p>Junior Gameplay & Software Engineer — UE5 + GAS · Software Architecture · Iterative Delivery</p>
+      </div>
+      <div class="links">
+        <a href="mailto:martinchipoco@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/mart%C3%ADn-jes%C3%BAs-chipoco/">LinkedIn</a>
+        <a href="https://github.com/Noothowl">GitHub</a>
+        <a class="cta" href="./assets/cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <span class="badge">Under construction</span>
+        <h2>About / Snapshot</h2>
+        <p style="color:#cfd5dd">Gameplay engineer focused on UE5 + GAS; software dev with strong foundations in architecture and product thinking. This site is being rebuilt into a richer portfolio. Meanwhile, download the latest CV above.</p>
+        <h2>Highlights</h2>
+        <ul>
+          <li>VoD Framework — custom modular UE5 build (GAS, data-driven gameplay assets, debug tooling).</li>
+          <li>Gustavo Fricke — WhatsApp contactability system (Express + Prisma + PostgreSQL + React), zero patient interaction.</li>
+          <li>Litch Rayders — UE5 indie prototype showcasing modular gameplay patterns.</li>
+        </ul>
+      </section>
+      <aside class="card">
+        <h2>Contact</h2>
+        <ul>
+          <li><strong>Email:</strong> martinchipoco@gmail.com</li>
+          <li><strong>LinkedIn:</strong> /in/martín-jesús-chipoco</li>
+          <li><strong>GitHub:</strong> @Noothowl</li>
+          <li><strong>Location:</strong> Viña del Mar, Valparaíso (CL)</li>
+        </ul>
+      </aside>
     </div>
-  </header>
 
-  <section class="card">
-    <h2>About</h2>
-    <p>This page are under construction, stay tunned</p>
-  </section>
-
-  <section class="card">
-    <h2>Display Project</h2>
-    <ul>
-      <li><strong>Title:</strong> Descr</li>
-      <li><strong>Title:</strong> Descr</li>
-      <li><strong>Title:</strong> Descr</li>
-    </ul>
-  </section>
+    <footer>
+      Deployed via GitHub Actions · The CV button points to the stable alias <code>assets/cv.pdf</code> (always refreshed on deploy).
+    </footer>
+  </div>
 </body>
 </html>

@@ -37,3 +37,9 @@ This repo contains:
 - The LaTeX is kept **simple** (single column, no tables/icons) for better ATS parsing.
 - You can customize `site/index.html` as a portfolio (projects, screenshots, links).
 - If you want to add screenshots or images, put them under `site/assets/`.
+
+---
+## Troubleshooting
+- **CV button doesn't open:** ensure the workflow run finished and that `public/assets/cv.pdf` exists in the Pages artifact.
+- To publish a custom filename, set `PDF_NAME` in `.github/workflows/latex-pages.yml`. The site keeps a stable alias `assets/cv.pdf`.
+- If your LaTeX file isn't `cv.tex`, the workflow auto-detects the first `.tex` file and uses it as the root.
