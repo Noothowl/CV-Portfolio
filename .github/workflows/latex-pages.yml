@@ -25,13 +25,13 @@ jobs:
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cv-pdf
-          path: cv.pdf
+          name: martinchipoco-cv-pdf
+          path: martinchipoco-cv.pdf
       - name: Prepare Pages content
         run: |
           mkdir -p public/assets
           cp -r site/* public/
-          cp cv.pdf public/assets/cv.pdf
+          cp martinchipoco-cv.pdf public/assets/martinchipoco-cv.pdf
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
