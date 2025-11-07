@@ -1,5 +1,5 @@
 # CV + Portfolio (LaTeX || GitHub)
-This repo contains:
+This repo contains: 
 - `cv.tex`: ATS-friendly LaTeX CV you can compile in **Overleaf** or via GitHub Actions.
 - `site/`: a minimal static portfolio that is automatically **deployed to GitHub Pages** on every push.
 - `.github/workflows/latex-pages.yml`: builds the PDF and deploys the `site/` (including the fresh PDF).
