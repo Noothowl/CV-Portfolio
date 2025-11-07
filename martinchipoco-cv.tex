@@ -4,28 +4,23 @@
 % ==== Unicode & fonts (fixes weird characters) ====
 \usepackage{fontspec}            % XeLaTeX
 \defaultfontfeatures{Ligatures=TeX}
-% (Opcional) una fuente sobria:
-% \setmainfont{Latin Modern Roman}
+% \setmainfont{Latin Modern Roman} % opcional
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{parskip}
-\usepackage{tabularx}            % para filas "izq..der" (titulo..fecha)
+\usepackage{tabularx}
 
-% ==== Estilo de secciones y listas ====
 \titleformat{\section}{\large\bfseries}{}{0pt}{}
 \setlist[itemize]{noitemsep,topsep=2pt,leftmargin=1.2em}
 \setstretch{1.02}
 
-% ==== Helpers ===================================================
-% Fila con título a la izquierda y fecha a la derecha
+% Fila izq..der (título..fecha)
 \newcommand{\rowwithdate}[2]{%
   \begin{tabularx}{\linewidth}{@{}X r@{}} #1 & \textit{#2} \\ \end{tabularx}
 }
-
-% Separador consistente para Skills (· seguro en Unicode; con pdfLaTeX usar \textperiodcentered)
 \newcommand{\sep}{\;|\;}
 
 \begin{document}
@@ -45,17 +40,16 @@ Bridges creative and technical domains to build scalable, data-driven systems fo
 % ===================== Education =====================
 \section*{Education}
 
-% Degree 1
 \rowwithdate{\textbf{University Technician in Computer Science} — Federico Santa María Technical University (UTFSM, Chile)}{2020–2022}
 \begin{itemize}
   \item Emphasis on applied software development, programming fundamentals, and system implementation.
 \end{itemize}
 
-% Degree 2
 \rowwithdate{\textbf{B.Sc. Computer Engineering} — UTFSM, Chile}{Expected Dec~2025}
 \begin{itemize}
   \item Relevant electives: IoT, Mobile Apps, Cloud Computing, Cybersecurity, Optimization, UI/UX.
   \item \textit{Project-Based Thesis:} \textbf{VoD Framework} — custom modular Unreal Engine 5 build designed to streamline indie development pipelines and improve access to state funding by standardizing workflows and reducing technical debt.
+\end{itemize} % <-- ¡este faltaba!
 
 % ===================== Technical Skills =====================
 \section*{Technical Skills}
