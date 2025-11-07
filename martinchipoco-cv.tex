@@ -1,45 +1,67 @@
 \documentclass[10.5pt]{article}
 \usepackage[margin=0.8in]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[unicode,hidelinks]{hyperref}  % <= importante 'unicode'
+
+% ==== Unicode & fonts (fixes weird characters) ====
+\usepackage{fontspec}            % XeLaTeX
+\defaultfontfeatures{Ligatures=TeX}
+% (Opcional) una fuente sobria:
+% \setmainfont{Latin Modern Roman}
+
+\usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{parskip}
+\usepackage{tabularx}            % para filas "izq..der" (titulo..fecha)
 
+% ==== Estilo de secciones y listas ====
 \titleformat{\section}{\large\bfseries}{}{0pt}{}
-\setlist[itemize]{noitemsep,topsep=1pt,leftmargin=1.2em}
-\setstretch{1.0}
+\setlist[itemize]{noitemsep,topsep=2pt,leftmargin=1.2em}
+\setstretch{1.02}
+
+% ==== Helpers ===================================================
+% Fila con título a la izquierda y fecha a la derecha
+\newcommand{\rowwithdate}[2]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}} #1 & \textit{#2} \\ \end{tabularx}
+}
+
+% Separador consistente para Skills (· seguro en Unicode; con pdfLaTeX usar \textperiodcentered)
+\newcommand{\sep}{\;|\;}
 
 \begin{document}
 
 % ===================== Header =====================
-{\large \textbf{Martin\'in Jes\'us Chipoco}}\\[2pt]
-Unreal Engine Developer \& Computer Engineer \hfill Vi\~na del Mar, Chile\\
-\href{mailto:martinchipoco@gmail.com}{martinchipoco@gmail.com} \;|\;
-\href{https://linkedin.com/in/mart\%C3\%ADn-jes\%C3\%BAs-chipoco}{LinkedIn} \;|\;
+{\large \textbf{Martín Jesús Chipoco}}\\[2pt]
+Unreal Engine Developer \& Computer Engineer \hfill Viña del Mar, Chile\\
+\href{mailto:martinchipoco@gmail.com}{martinchipoco@gmail.com} \sep
+\href{https://linkedin.com/in/mart%C3%ADn-jes%C3%BAs-chipoco}{LinkedIn} \sep
 \href{https://github.com/Noothowl}{GitHub}
 
 % ===================== Summary =====================
 \section*{Professional Summary}
-Gameplay Engineer and Software Developer specialized in \textbf{Unreal Engine 5 (GAS)} with a solid foundation in software architecture, workflows, and modern web/cloud technologies. 
+Gameplay Engineer and Software Developer specialized in \textbf{Unreal Engine 5 (GAS)} with a solid foundation in software architecture, workflows, and modern web/cloud technologies.
 Bridges creative and technical domains to build scalable, data-driven systems for both games and enterprise software. Passionate about modular design, performance, and maintainable pipelines.
 
 % ===================== Education =====================
 \section*{Education}
-\textbf{University Technician in Computer Science} (2020–2022) — Federico Santa Mar\'ia Technical University (UTFSM, Chile)\\
-Emphasis on applied software development, programming fundamentals, and system implementation.\\[2pt]
-\textbf{B.Sc. Computer Engineering} (expected Dec 2025) — UTFSM, Chile\\
-Relevant electives: IoT, Mobile Apps, Cloud Computing, Cybersecurity, Optimization, UI/UX.\\
-\textit{Project-Based Thesis:} \textbf{VoD Framework} — modular UE5 + GAS system improving scalability and workflows for indie studios.
 
+% Degree 1
+\rowwithdate{\textbf{University Technician in Computer Science} — Federico Santa María Technical University (UTFSM, Chile)}{2020–2022}
+\begin{itemize}
+  \item Emphasis on applied software development, programming fundamentals, and system implementation.
+\end{itemize}
 
+% Degree 2
+\rowwithdate{\textbf{B.Sc. Computer Engineering} — UTFSM, Chile}{Expected Dec~2025}
+\begin{itemize}
+  \item Relevant electives: IoT, Mobile Apps, Cloud Computing, Cybersecurity, Optimization, UI/UX.
+  \item \textit{Project-Based Thesis:} \textbf{VoD Framework} — modular UE5 + GAS system improving scalability and workflows for indie studios.
+\end{itemize}
 
 % ===================== Technical Skills =====================
 \section*{Technical Skills}
 \textbf{Programming:} C++, JavaScript (Node), Python, Java, C\#, PHP, SQL/NoSQL.\\
-\textbf{Game Tech:} Unreal Engine 5 (GAS · C++ · Blueprints · GameplayTags), Blender.\\
+\textbf{Game Tech:} Unreal Engine 5 (GAS, C++, Blueprints, GameplayTags), Blender.\\
 \textbf{Web \& Cloud:} Laravel, Express, React, PostgreSQL, Docker, AWS (Certified).\\
 \textbf{Tools \& DevOps:} Git, GitHub, Git LFS + locking, GitHub Actions, Scrum, Agile.\\
 \textbf{Core Strengths:} Software Architecture, Iterative Development, Technical Leadership.
@@ -47,40 +69,44 @@ Relevant electives: IoT, Mobile Apps, Cloud Computing, Cybersecurity, Optimizati
 % ===================== Experience =====================
 \section*{Experience}
 
-\textbf{Gameplay Systems Intern — Lead Programmer / Product Owner (Tyrant Team)} \hfill Aug–Nov 2024\\[-4pt]
-\textit{Freelance continuation through Dec 2024}\\[-6pt]
+\rowwithdate{\textbf{Gameplay Systems Intern — Lead Programmer / Product Owner (Tyrant Team)}}{Aug–Nov~2024}
+\textit{Freelance continuation through Dec~2024}
 \begin{itemize}
   \item Designed and implemented a custom modular \textbf{Unreal Engine 5 framework} with GAS integration, debug tooling, and universal bone-based hit detection.
   \item Defined team workflow, CI/CD strategy, and documentation standards for scalable iteration.
   \item Balanced \textbf{PO/Lead Programmer} duties: backlog definition, iteration scope, and mentoring.
 \end{itemize}
 
-\textbf{Full-Stack Engineer — Hospital Gustavo Fricke (UTFSM Project)} \hfill 2024\\[-6pt]
+\rowwithdate{\textbf{Full-Stack Engineer — Hospital Gustavo Fricke (UTFSM Project)}}{2024}
 \begin{itemize}
   \item Built a \textbf{WhatsApp-based contactability system} requiring zero patient input, improving hospital communication efficiency.
   \item Developed backend automation (Express + Prisma + PostgreSQL) and a minimal, usable admin dashboard.
   \item Showcased at \textbf{UTFSM Software Fair 2025 (Equipo Gustabot)}.
 \end{itemize}
 
-\textbf{Scrum Team Intern — ELYON Technology} \hfill Dec 2022–Feb 2023\\[-6pt]
+\rowwithdate{\textbf{Scrum Team Intern — ELYON Technology}}{Dec~2022–Feb~2023}
 \begin{itemize}
   \item Coordinated remote Scrum routines and created onboarding materials for experimental enterprise prototypes.
 \end{itemize}
 
-\textbf{Freelance \& Technical Advisory} \hfill 2020–Present\\[-6pt]
+\rowwithdate{\textbf{Freelance \& Technical Advisory}}{2020–Present}
 \begin{itemize}
-  \item Tutoring and IT consultancy: programming, architecture, and automation support for small teams and Asesor\'ia e Inspecci\'on SPA.
+  \item Tutoring and IT consultancy: programming, architecture, and automation support for small teams and Asesoría e Inspección SPA.
 \end{itemize}
 
 % ===================== Leadership & Community =====================
 \section*{Leadership \& Community}
-\textbf{USM Games — President / Founder} (2024–Present) — Organized institutional funding, outreach, and guest talks (e.g., Julio Marambio, Octeto Studios).\\
-\textbf{AEVGC — Regional Coordinator (Valpara\'iso)} (2025–Present) — Managed regional collaboration between universities and indie studios.
+\rowwithdate{\textbf{USM Games — President / Founder}}{2024–Present}
+Organized institutional funding, outreach, and guest talks (e.g., Julio Marambio, Octeto Studios).
+
+\medskip
+\rowwithdate{\textbf{AEVGC — Regional Coordinator (Valparaíso)}}{2025–Present}
+Managed regional collaboration between universities and indie studios.
 
 % ===================== Projects / Certifications / Interests =====================
 \section*{Projects · Certifications · Interests}
 \textbf{VoD Framework (Thesis)} — Modular UE5 + GAS framework improving indie pipelines.\\
-\textbf{Litch Rayders (2025)} — Indie prototype showcasing modular gameplay systems.\\
+\textbf{Licht Rayders (2025)} — Indie prototype showcasing modular gameplay systems.\\
 \textbf{Noothowl Vault (2023)} — 3D stylized asset portfolio for rapid prototyping.\\
 AWS Cloud Practitioner (2025); Epic Games Developer Certificate (2025).\\
 \textit{Interests:} Gameplay systems, framework design, Unreal customization, scalable workflows.
