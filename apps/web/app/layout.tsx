@@ -6,9 +6,15 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const metadata: Metadata = {
 <<<<<<< HEAD
+<<<<<<< HEAD
   title: 'Martín Jesús Chipoco',
   description: 'Unreal Engine & Software Developer | Computer Engineer — Portfolio Site: Projects & CV',
   icons: { icon: '/icon.png' }, // sin base
+=======
+  title: 'Martín Jesús Chipoco — Portfolio',
+  description: 'Unreal Engine / Software Engineer — Projects & CV',
+  icons: { icon: `${base}/icon.png` },
+>>>>>>> c6e9cfd (imgs fix)
 =======
   title: 'Martín Jesús Chipoco — Portfolio',
   description: 'Unreal Engine / Software Engineer — Projects & CV',
@@ -25,7 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           style={{
             background: `
 <<<<<<< HEAD
+<<<<<<< HEAD
               url("/images/bg.webp") center/cover no-repeat,
+=======
+              url("${base}/images/bg.webp") center/cover no-repeat,
+>>>>>>> c6e9cfd (imgs fix)
 =======
               url("${base}/images/bg.webp") center/cover no-repeat,
 >>>>>>> c6e9cfd (imgs fix)
