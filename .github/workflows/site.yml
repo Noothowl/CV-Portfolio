@@ -52,8 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_TELEMETRY_DISABLED: 1
-      # Para basePath/assetPrefix automático en Project Pages
-      GITHUB_REPOSITORY: ${{ github.repository }}
+      NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
