@@ -37,7 +37,7 @@ export const projects: Project[] = [
     id: "noothowl-vault",
     title: "Noothowl Vault – Blender",
     period: { start: "2022", end: "2023" },
-    thumbnail: "/images/placeholder.jpg",
+    thumbnail: "images/placeholder.jpg",
     summary: "Stylized assets and quick prototyping vault.",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede.",

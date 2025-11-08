@@ -5,38 +5,61 @@ import { projects } from "../data/projects";
 import { Card } from "../components/Card";
 import { Modal } from "../components/Modal";
 import { TagPill } from "../components/TagPill";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { FilterBar } from "../components/FilterBar";
 
 export default function Home() {
   const [query, setQuery] = useState("");
+  const [activeTag, setActiveTag] = useState<string | null>(null);
   const [openId, setOpenId] = useState<string | null>(null);
+
+  const allTags = useMemo(() => {
+    const s = new Set<string>();
+    projects.forEach(p => p.tags.forEach(t => s.add(t.text)));
+    return Array.from(s).sort();
+  }, []);
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
     return projects
       .filter(p => !q || (p.title + p.summary + (p.tech ?? []).join(" ")).toLowerCase().includes(q))
+      .filter(p => !activeTag || p.tags.some(t => t.text === activeTag))
       .sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
-  }, [query]);
+  }, [query, activeTag]);
 
   const opened = projects.find(p => p.id === openId) ?? null;
 
   return (
     <div>
-      <header style={{display:"flex",gap:16,alignItems:"center",marginBottom:16}}>
-        <h1 style={{fontSize:24, fontWeight:800, marginRight:"auto"}}>Portfolio</h1>
-        <input
-          placeholder="Buscar proyectos…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          style={{
-            background:"var(--bg-subtle)", color:"var(--fg-default)",
-            border:"1px solid var(--border-subtle)", borderRadius:10, padding:"8px 12px"
-          }}
-        />
-        <a href="./cv.pdf" target="_blank" rel="noreferrer"
-           style={{padding:"8px 12px", border:"1px solid var(--border-subtle)",
-                   borderRadius:10, textDecoration:"none"}}>Ver CV</a>
-      </header>
+      <Navbar />
 
+      {/* About */}
+      <section className="about">
+        <div>
+          <h1 className="display">Martín Jesús Chipoco - Portfolio</h1>
+          <p className="dim">Unreal Engine & Software Developer | Computer Engineer</p>
+          <div className="bullet-card">
+            <strong>Highlights</strong>
+            <ul>
+              <li>VoD Framework — custom modular UE5 build (GAS, data-driven assets, debug tooling).</li>
+              <li>Hospital Gustavo Fricke — WhatsApp contactability (Express + Prisma + PostgreSQL + React).</li>
+              <li>Licht Rayders — UE5 indie MVP prototype with modular patterns.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Filters */}
+      <FilterBar
+        query={query}
+        onQuery={setQuery}
+        tags={allTags}
+        activeTag={activeTag}
+        onTag={setActiveTag}
+      />
+
+      {/* Grid */}
       <div className="grid">
         {list.map(p => (
           <Card key={p.id}
@@ -49,6 +72,7 @@ export default function Home() {
         ))}
       </div>
 
+      {/* Modal */}
       <Modal open={!!opened} onClose={() => setOpenId(null)} title={opened?.title}>
         {opened && (
           <div style={{display:"grid", gap:16}}>
@@ -67,6 +91,8 @@ export default function Home() {
           </div>
         )}
       </Modal>
+
+      <Footer />
     </div>
   );
 }
