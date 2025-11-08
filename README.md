@@ -1,5 +1,8 @@
-# CV + Portfolio (Next.js + LaTeX → PDF + GitHub Pages)
+## CV & Portfolio
+Monorepo that deploys a CV in LaTex format to PDF and add it to a main portfolio site.
 
-Monorepo que despliega un portfolio Next.js **estático** y mantiene el flujo LaTeX→PDF. El CI compila el PDF y lo copia al sitio (botón “Ver CV” siempre abre la versión fresca).
 
-## Estructura
+### CV - LaTex -> PDF + GithubPages
+
+
+### Portfolio - Next.js + Github Pages
