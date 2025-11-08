@@ -1,0 +1,100 @@
+name: Build CV (LaTeX) + Next.js + Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  latex:
+    name: Build CV PDF (LaTeX)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find TeX root
+        id: texroot
+        run: |
+          TEX=$(ls -1 *.tex | head -n1 || true)
+          if [ -z "$TEX" ]; then
+            echo "::error::No .tex file found at repo root. Please add your LaTeX CV file (e.g. martinchipoco-cv.tex)."
+            exit 1
+          fi
+          echo "texfile=$TEX" >> $GITHUB_OUTPUT
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ steps.texroot.outputs.texfile }}
+          latexmk_use_xelatex: true
+
+      - name: Upload cv.pdf artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: |
+            *.pdf
+          if-no-files-found: error
+
+  web:
+    name: Build Next.js
+    needs: latex
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+      # Para basePath/assetPrefix automático en Project Pages
+      GITHUB_REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download cv.pdf
+        uses: actions/download-artifact@v4
+        with:
+          name: cv-pdf
+          path: .
+      - name: Place cv.pdf into Next public
+        run: |
+          mkdir -p apps/web/public
+          PDF=$(ls -1 *.pdf | head -n1)
+          cp "$PDF" apps/web/public/cv.pdf
+
+      - name: Install deps
+        working-directory: apps/web
+        run: npm ci
+
+      - name: Build (next build + export)
+        working-directory: apps/web
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/out
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: web
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,24 @@
+{
+  "name": "cv-portfolio",
+  "private": true,
+  "scripts": {
+    "scaffold": "node scripts/scaffold.js",
+    "scaffold:clean": "node scripts/scaffold.js --force",
+    "scaffold:structure": "node scripts/scaffold.js --only-structure"
+  },
+  "version": "1.0.0",
+  "description": "Monorepo que despliega un portfolio Next.js **estático** y mantiene el flujo LaTeX→PDF. El CI compila el PDF y lo copia al sitio (botón “Ver CV” siempre abre la versión fresca).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noothowl/CV-Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noothowl/CV-Portfolio/issues"
+  },
+  "homepage": "https://github.com/Noothowl/CV-Portfolio#readme"
+}
+
