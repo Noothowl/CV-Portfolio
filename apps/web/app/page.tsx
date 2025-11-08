@@ -32,7 +32,7 @@ export default function Home() {
             border:"1px solid var(--border-subtle)", borderRadius:10, padding:"8px 12px"
           }}
         />
-        <a href="/cv.pdf" target="_blank" rel="noreferrer"
+        <a href="./cv.pdf" target="_blank" rel="noreferrer"
            style={{padding:"8px 12px", border:"1px solid var(--border-subtle)",
                    borderRadius:10, textDecoration:"none"}}>Ver CV</a>
       </header>
