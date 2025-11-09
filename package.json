@@ -7,6 +7,6 @@
     "export": "npm --prefix apps/web run export",
     "build:site": "npm --prefix apps/web run build:site",
     "preview": "npx serve out -l 5174",
-    "build:cv": "latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=. cv/main.tex"
+    "build:cv": "latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=. cv/martinchipoco-cv.tex"
   }
 }

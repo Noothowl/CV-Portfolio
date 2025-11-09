@@ -25,13 +25,13 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
+          root_file: martinchipoco-cv.tex
           working_directory: cv
           latexmk_use_xelatex: true
 
-      - name: Rename -> cv.pdf (raíz del artifact)
+      - name: Rename -> martinchipoco-cv.pdf (root)
         run: |
-          cp cv/main.pdf cv.pdf
+          cp cv/martinchipoco-cv.pdf cv.pdf
 
       - name: Upload cv.pdf artifact
         uses: actions/upload-artifact@v4
