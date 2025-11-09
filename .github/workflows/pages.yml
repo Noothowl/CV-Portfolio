@@ -39,46 +39,61 @@ jobs:
           path: cv.pdf
 
   site:
-    name: Build & Export Next.js (static)
-    runs-on: ubuntu-latest
-    needs: cv
-    env:
-      NEXT_TELEMETRY_DISABLED: 1
-      # IMPORTANT: base path para Pages de proyecto
-      NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  name: Build & Export Next.js (static)
+  runs-on: ubuntu-latest
+  needs: cv
+  env:
+    NEXT_TELEMETRY_DISABLED: 1
+    NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: npm
 
-      - name: Install deps
-        working-directory: apps/web
-        run: npm ci || npm i
+    - name: Debug tree (antes)
+      run: |
+        pwd
+        ls -la
+        ls -la apps || true
+        ls -la apps/web || true
 
+    - name: Install deps (apps/web)
+      working-directory: apps/web
+      run: npm ci || npm i
 
-      - name: Build static site
-        run: npm run build:site
+    - name: Build (apps/web)
+      run: npm --prefix apps/web run build
 
-      - name: Download cv.pdf
-        uses: actions/download-artifact@v4
-        with:
-          name: cv-pdf
-          path: out
+    - name: Export (apps/web → apps/web/out)
+      run: npm --prefix apps/web run export
 
-      # Asegura que el CV quede en /cv.pdf
-      - name: Verify cv.pdf
-        run: |
-          test -f out/cv.pdf || (echo "cv.pdf missing" && exit 1)
+    - name: Move export to repo root (out/)
+      run: |
+        rm -rf out
+        mv apps/web/out out
+        ls -la out || true
+        ls -la out/images || true
 
-      - name: Upload Pages artifact (out)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: out
+    - name: Download cv.pdf (into out/)
+      uses: actions/download-artifact@v4
+      with:
+        name: cv-pdf
+        path: out
+
+    - name: Verify cv.pdf
+      run: |
+        test -f out/cv.pdf || (echo "cv.pdf missing" && exit 1)
+
+    - name: Upload Pages artifact (out)
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: out
+
 
   deploy:
     name: Deploy to GitHub Pages
