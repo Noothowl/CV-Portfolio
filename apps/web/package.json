@@ -1,19 +1,15 @@
 {
-  "name": "cv-portfolio-web",
+  "name": "web",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5173",
+    "dev": "next dev",
     "build": "next build",
-    "start": "npx serve -s out"
+    "export": "next export -o ../../out",
+    "build:site": "npm run build && npm run export"
   },
   "dependencies": {
-    "next": "^14.2.33",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
-  },
-  "devDependencies": {
-    "@types/node": "24.10.0",
-    "@types/react": "19.2.2",
-    "typescript": "5.9.3"
+    "next": "14.x",
+    "react": "18.x",
+    "react-dom": "18.x"
   }
 }

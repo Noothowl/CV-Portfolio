@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
-export default {
-  output: 'export',
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH ? `${process.env.NEXT_PUBLIC_BASE_PATH}/` : undefined,
-  images: { unoptimized: true },
+const isProd = process.env.NODE_ENV === "production";
+
+const nextConfig = {
+  output: "export",
+  basePath: isProd ? "/CV-Portfolio" : "",
+  assetPrefix: isProd ? "/CV-Portfolio/" : "",
+  images: {
+    unoptimized: true,
+  },
 };
+
+export default nextConfig;
