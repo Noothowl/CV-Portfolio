@@ -26,19 +26,17 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: martinchipoco-cv.tex
-          working_directory: cv
+          working_directory: .
           latexmk_use_xelatex: true
 
-      - name: Rename -> martinchipoco-cv.pdf (root)
-        run: |
-          cp cv/martinchipoco-cv.pdf cv.pdf
+      - name: Rename -> cv.pdf
+        run: mv martinchipoco-cv.pdf cv.pdf
 
       - name: Upload cv.pdf artifact
         uses: actions/upload-artifact@v4
         with:
           name: cv-pdf
           path: cv.pdf
-          if-no-files-found: error
 
   site:
     name: Build & Export Next.js (static)
@@ -66,7 +64,7 @@ jobs:
       - name: Build static site
         run: npm run build:site
 
-      - name: Download cv.pdf artifact
+      - name: Download cv.pdf
         uses: actions/download-artifact@v4
         with:
           name: cv-pdf
