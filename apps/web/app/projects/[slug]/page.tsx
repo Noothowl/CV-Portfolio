@@ -1,5 +1,6 @@
 import { listProjectSlugs, readProjectFrontMatter, getAllProjectFrontMatters } from "@/lib/projects-content";
 import type { ProjectFrontMatter, LegacyProject } from "@/types/projects";
+import { publicPath } from "@/lib/publicPath";
 import { Card } from "@/components/Card";
 import { Navbar } from "@/components//Navbar";
 import { Footer } from "@/components//Footer";
@@ -14,17 +15,19 @@ export function generateStaticParams() {
 
 
 function mapMetaToLegacy(meta: ProjectFrontMatter): LegacyProject {
-  const thumbnail = meta.media?.hero?.ref ?? "/images/placeholder.jpg";
+  const thumbnail = meta.media?.hero?.ref
+    ? publicPath(meta.media.hero.ref)      // 👈 aquí
+    : publicPath("/images/placeholder.jpg");
+
   return {
     id: meta.slug,
     title: meta.title,
-    period: { start: meta.period }, // si luego quieres mostrar rango real, lo parseamos
+    period: { start: meta.period },
     thumbnail,
     summary: meta.shortDescription,
     description: "",
-    tags: meta.tags.map((t) => ({ text: t })), // mapeo a tus pill tags
+    tags: meta.tags.map((t) => ({ text: t })),
     links: { page: `/projects/${meta.slug}` },
-    featured: meta.featured ?? false,
   };
 }
 

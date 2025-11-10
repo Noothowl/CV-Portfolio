@@ -15,7 +15,6 @@ export interface ProjectFrontMatter {
   tags: string[];
   status: ProjectStatus;
 
-  // añade esto:
   featured?: boolean;
 
   media?: {
@@ -25,7 +24,6 @@ export interface ProjectFrontMatter {
   links?: Array<{ label: string; url: string; kind?: string }>;
 }
 
-// Shape legacy (para reusar tu <Card/> actual)
 export type PillTone = "gray" | "green" | "yellow" | "red";
 export type LegacyProject = {
   id: string;

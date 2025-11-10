@@ -1,6 +1,6 @@
-// apps/web/app/components/HomeOverlay.tsx
 "use client";
 
+import { publicPath } from "@/lib/publicPath";
 import { useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -34,7 +34,10 @@ export default function HomeOverlay({ metas }: { metas: ProjectFrontMatter[] }) 
 
         <div className="modal-body">
           <div className="card__thumb" style={{ marginBottom: 12 }}>
-            <img src={meta.media?.hero?.ref ?? "/images/placeholder.jpg"} alt={meta.title} />
+            <img
+                  src={publicPath(meta.media?.hero?.ref) || publicPath("/images/placeholder.jpg")}
+                  alt={meta.title}
+            />
           </div>
 
           <p className="card__meta">{meta.period}</p>

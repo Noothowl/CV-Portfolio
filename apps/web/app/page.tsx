@@ -1,5 +1,6 @@
 // apps/web/app/page.tsx
 export const dynamic = "force-static";
+import { publicPath } from "@/lib/publicPath";
 
 import { getAllProjectFrontMatters } from "@/lib/projects-content";
 import type { ProjectFrontMatter, LegacyProject } from "@/types/projects";
@@ -9,7 +10,10 @@ import HomeClient from "@/components/HomeClient";
 import HomeOverlay from "@/components/HomeOverlay";
 
 function mapMetaToLegacy(meta: ProjectFrontMatter): LegacyProject {
-  const thumbnail = meta.media?.hero?.ref ?? "/images/placeholder.jpg";
+  const thumbnail = meta.media?.hero?.ref
+    ? publicPath(meta.media.hero.ref)      // 👈 aquí
+    : publicPath("/images/placeholder.jpg");
+
   return {
     id: meta.slug,
     title: meta.title,
