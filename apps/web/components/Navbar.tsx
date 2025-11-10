@@ -1,14 +1,18 @@
+// apps/web/components/Navbar.tsx
+import Link from "next/link";
+
 export function Navbar() {
   return (
-    <nav className="nav">
-      <div className="nav-left">
-        {/* <a className="brand" href=".">Home</a> */}
+    <nav className="nav header">
+      <div>
+        <ul> <h1 className="display">Martín Jesús Chipoco - Portfolio</h1></ul>
+        <ul> <p className="dim">Unreal Engine & Software Developer | Computer Engineer</p></ul>
       </div>
       <div className="nav-right">
         <a href="mailto:martinchipoco@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/martín-jesús-chipoco" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="https://github.com/Noothowl" target="_blank" rel="noreferrer">GitHub</a>
-        <a className="btn-primary" href="./cv.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
+        <a className="btn-primary" href="/cv.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
       </div>
     </nav>
   );

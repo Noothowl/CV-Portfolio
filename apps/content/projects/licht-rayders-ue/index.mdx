@@ -1,0 +1,70 @@
+---
+title: "Licht Rayders - UE"
+slug: "licht-rayders-ue"
+shortDescription: "Arcade shooter en UE5: vertical slice con arquitectura modular y gameplay loop consistente."
+period: "May, 2025 – June 28, 2025"
+
+# domain se maneja como tag:
+tags: ["Gamedev", "Project", "Game"]
+
+# status independiente:
+status: "Finished" # (Development | Finished | Paused)
+
+technologies: ["Unreal Engine 5.4", "C++", "Blueprints"]
+
+links:
+  - { label: "Itch.io", url: "https://TU-URL-ITCH.io", kind: "Itch" }
+  - { label: "Game Page", url: "https://TU-URL-PAGINA", kind: "Website" }
+
+media:
+  hero: { type: "gif", ref: "/projects/Licht-Rayders-UE/thumb.gif" }
+  blocks:
+    - { type: "gif", src: "/projects/Licht-Rayders-UE/thumb.gif", alt: "Hero gameplay loop" }
+    - { type: "image", src: "/projects/Licht-Rayders-UE/screen-01.webp", alt: "Nivel con torretas y HUD" }
+    - { type: "image", src: "/projects/Licht-Rayders-UE/screen-02.webp", alt: "Oleada de enemigos y disparos" }
+    - { type: "image", src: "/projects/Licht-Rayders-UE/screen-03.webp", alt: "Layout de escenario y partículas" }
+
+---
+
+## Overview
+**Licht Rayders** es una experiencia de gameplay en formato corto construida en Unreal Engine 5 como *vertical slice* para demostrar fundamentos de **gameplay programming**, **lógica de UI** y **arquitectura modular**.  
+Desarrollado en **C++** y complementado con **Blueprints**, sirve como pieza de portafolio real para mostrar implementación de sistemas y diseño de niveles enfocado en un loop claro: movimiento, apuntado, disparo, administración de recursos y patrones de enemigos.
+
+## Design Focus
+- Shooter arcade de un jugador con layouts tipo *puzzle* para enemigos.
+- Código modular y reutilizable para UI, acciones del jugador y clases de enemigos.
+- Gameplay loop explícito y consistente con énfasis en *production readiness*.
+
+## Implemented Features
+- Arquitectura de **GameMode** dirigida por C++ con **Enhanced Input**.
+- Menú Principal, Menú de Pausa y **Game HUD** (UMG + C++).
+- Esquema de control *tank-style* con rotación por mouse.
+- Sistema de **Nitro** con *cooldowns* y *speed boosts* temporales.
+- Estados de juego: transición de niveles, victoria/derrota.
+- ≈ **18 variantes de enemigos** en 3 niveles de dificultad y 2 tipos de comportamiento (torretas estáticas vs IA móvil).
+- **Herramientas de debug** y exposición de variables para *design-time tuning*.
+
+## Technical Highlights
+- Arquitectura **full C++** con módulos plug-and-play.
+- Diseño orientado a **objetos y componentes** para favorecer extensibilidad.
+- Nuevas armas, *enemies* o *abilities* pueden añadirse sin modificar sistemas existentes.
+- Visuales estilizados y simples para reforzar la idea (polish deliberadamente limitado).
+
+## Development Timeline
+- **Week 1:** Ideación, *project core* (Pawn, Projectiles, Movement).
+- **Week 2:** Plan de escalabilidad: alcance, clases y funcionalidades requeridas.
+- **Week 3:** Implementación & Integración de nuevas features.
+- **Week 4:** Polish: creación de assets, *gamemodes*, Game y Menú principal.
+- **Week 5:** Visuales: diseño de niveles, placement, materiales y VFX.
+
+## What I Learned
+- Aplicación de principios de modularidad para escalar *gameplay features*.
+- Mejoras en comunicación *cross-system* dentro de UE (GameModes, Controllers, Subsystems).
+- Experiencia práctica en *publishing*, *debugging* y refinamiento para *public release*.
+
+## Tools Used
+- Unreal Engine 5.4
+- Blueprints (Visual Scripting)
+- HUD y Widgets personalizados
+- Blender (creación de assets)
+- JetBrains Rider (programación)

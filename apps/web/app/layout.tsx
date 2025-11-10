@@ -25,7 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <div id="root-col">
-          <div className="container">{children}</div>
+          <main className="main">
+            <div className="container">{children}</div>
+          </main>
         </div>
       </body>
     </html>
