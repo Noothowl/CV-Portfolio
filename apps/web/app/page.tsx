@@ -41,13 +41,15 @@ export default function Home() {
           <p className="dim">Unreal Engine & Software Developer | Computer Engineer</p>
           <div className="bullet-card">
             <strong>About Me</strong>
-              <p>
+              <ul>
+                <p>
                   Hey there! Welcome to my portfolio. Here, I’m showcasing the projects that truly define my skills and my passion for game development.
                   I'm a 23-year-old developer actively seeking my first professional experience—a lifelong dream I’ve pursued since I was 6. My passion quickly evolved, leading me to experiment with programming tools and create game mods by the age of 13. Since then, I've developed a strong foundation in GameMaker and Robotics.
                   My core focus is on designing dynamic, modular, and scalable game systems. This approach not only offers players diverse possibilities but also ensures efficient content creation. My philosophy is heavily influenced by my love for roguelikes and looters, as I prioritize meaningful progression over excessive grinding.
                   Crucially, I blend programming proficiency with a solid foundation in artistic skills like 3D modeling and animation. This mix of technical and creative talent allows me to effectively bridge the gap between code and art and communicate smoothly with every team member.
                   I hope you enjoy exploring the interactive project cards below!
-              </p>
+                </p>
+              </ul>
           </div>
         </div>
       </section>
