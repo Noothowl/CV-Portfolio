@@ -52,7 +52,7 @@ export default function ProjectDetail({ params }: Params) {
       }
       <div className="card">
         <div className="card__thumb">
-          <img src={meta.media?.hero?.ref ?? "/images/placeholder.jpg"} alt={meta.title} />
+          <img src={publicPath(meta.media?.hero?.ref) || publicPath("/images/placeholder.jpg")} alt={meta.title} />
         </div>
         <div className="card__body">
           <p className="card__meta">{meta.period}</p>
