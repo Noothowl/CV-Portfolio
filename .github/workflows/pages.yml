@@ -31,7 +31,7 @@ jobs:
         working-directory: apps/web
         run: npm install
 
-      # Compila con XeLaTeX (usas fontspec)
+      # Compile LaTex
       - name: Build CV (XeLaTeX)
         uses: xu-cheng/latex-action@v3
         with:

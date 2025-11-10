@@ -1,24 +1,24 @@
 /* =========================
-   THEME VARIABLES (toca aquí)
+   THEME VARIABLES
    ========================= */
 :root{
   /* Canvas/bgs */
-  --bg-canvas: #0d1117ae;     /* color base detrás del blur (oscurece el fondo) */
-  --bg-subtle: #161b22;       /* paneles y tarjetas */
-  --border-subtle: #30363d;   /* bordes suaves */
+  --bg-canvas: #0d1117ae;     /* color base behind blur */
+  --bg-subtle: #161b22;       /* panels and cards */
+  --border-subtle: #30363d;   /* smooth borders */
 
   /* fonts */
-  --fg-default: #c9d1d9;      /* texto principal */
-  --fg-muted:   #8b949e;      /* texto secundario */
+  --fg-default: #c9d1d9;      /* text principal */
+  --fg-muted:   #8b949e;      /* text secondary */
 
   /* Marca / links */
-  --accent: #2f81f7;          /* color de enlaces y acentos */
+  --accent: #2f81f7;          /* link and accents */
 
   /* Cards */
-  --card-bg:    #1b1f24;      /* fondo card */
-  --card-hover: #22262c;      /* fondo card en hover */
-  --radius: 16px;             /* radio de borde global */
-  --shadow: 0 10px 30px rgba(0,0,0,0.35); /* sombra global */
+  --card-bg:    #1b1f24;      /* bg card */
+  --card-hover: #22262c;      /* bg card on hover */
+  --radius: 16px;             /* radius global border */
+  --shadow: 0 10px 30px rgba(0,0,0,0.35); /* shadow global */
 
   /* Pills/tags */
   --pill-gray-fg:   #c9d1d9;

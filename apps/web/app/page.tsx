@@ -40,20 +40,14 @@ export default function Home() {
           <h1 className="display">Martín Jesús Chipoco - Portfolio</h1>
           <p className="dim">Unreal Engine & Software Developer | Computer Engineer</p>
           <div className="bullet-card">
-            <strong>Highlights</strong>
-            <ul>
+            <strong>About Me</strong>
               <p>
-                  Hello, and welcome! This portfolio showcases projects that truly represent my skills and passions in game development.
-
-                  I'm a 23-year-old developer actively seeking professional experience—a lifelong dream. My passion for games started at age 6, leading to experimentation with programming tools and game mods by age 13. I've since developed a strong affinity for GameMaker and Robotics.
-
-                  My focus is on creating dynamic, modular, and scalable game systems that offer players multiple possibilities and enable efficient content creation. My design philosophy, heavily influenced by roguelikes and looters, prioritizes meaningful progression over excessive grinding.
-
-                  Critically, I combine programming proficiency with a strong foundation in artistic skills like 3D modeling and animation. This technical and creative blend allows me to effectively bridge the gap between code and art, ensuring clear communication with all team members.
-
+                  Hey there! Welcome to my portfolio. Here, I’m showcasing the projects that truly define my skills and my passion for game development.
+                  I'm a 23-year-old developer actively seeking my first professional experience—a lifelong dream I’ve pursued since I was 6. My passion quickly evolved, leading me to experiment with programming tools and create game mods by the age of 13. Since then, I've developed a strong foundation in GameMaker and Robotics.
+                  My core focus is on designing dynamic, modular, and scalable game systems. This approach not only offers players diverse possibilities but also ensures efficient content creation. My philosophy is heavily influenced by my love for roguelikes and looters, as I prioritize meaningful progression over excessive grinding.
+                  Crucially, I blend programming proficiency with a solid foundation in artistic skills like 3D modeling and animation. This mix of technical and creative talent allows me to effectively bridge the gap between code and art and communicate smoothly with every team member.
                   I hope you enjoy exploring the interactive project cards below!
               </p>
-            </ul>
           </div>
         </div>
       </section>

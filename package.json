@@ -7,7 +7,7 @@
     "scaffold:structure": "node scripts/scaffold.js --only-structure"
   },
   "version": "1.0.0",
-  "description": "Monorepo que despliega un portfolio Next.js **estático** y mantiene el flujo LaTeX→PDF. El CI compila el PDF y lo copia al sitio (botón “Ver CV” siempre abre la versión fresca).",
+  "description": "Monorepo that deploys a portfolio Next.js **static** and keeps LaTeX→PDF. The CI compiles the PDF and copy to btn.",
   "main": "index.js",
   "repository": {
     "type": "git",
