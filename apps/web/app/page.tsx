@@ -37,12 +37,13 @@ export default function Home() {
       {/* About */}
       <section className="about">
         <div>
-          <h1 className="display">Martín Jesús Chipoco</h1>
+          <h1 className="display">Martín Jesús Chipoco - Portfolio</h1>
           <p className="dim">Unreal Engine & Software Developer | Computer Engineer</p>
           <div className="bullet-card">
             <strong>Highlights</strong>
             <ul>
-              <p>   Hello, and welcome! This portfolio showcases projects that truly represent my skills and passions in game development.
+              <p>
+                  Hello, and welcome! This portfolio showcases projects that truly represent my skills and passions in game development.
 
                   I'm a 23-year-old developer actively seeking professional experience—a lifelong dream. My passion for games started at age 6, leading to experimentation with programming tools and game mods by age 13. I've since developed a strong affinity for GameMaker and Robotics.
 
@@ -50,7 +51,7 @@ export default function Home() {
 
                   Critically, I combine programming proficiency with a strong foundation in artistic skills like 3D modeling and animation. This technical and creative blend allows me to effectively bridge the gap between code and art, ensuring clear communication with all team members.
 
-                  I hope you enjoy exploring the interactive project cards below! 
+                  I hope you enjoy exploring the interactive project cards below!
               </p>
             </ul>
           </div>

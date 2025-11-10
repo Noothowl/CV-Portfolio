@@ -5,4 +5,3 @@ Monorepo that deploys a CV in LaTex format to PDF and add it to a main portfolio
 
 
 ### Portfolio - Next.js + Github Pages
-a

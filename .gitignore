@@ -1,24 +1,9 @@
-# Node / Next
-node_modules
+node_modules/
 .next/
-out
-dist
-*.log
-
-# OS
+out/
+dist/
 .DS_Store
 Thumbs.db
-
-# Env
-.env
-.env.local
-.env.*.local
-
-# LaTeX caché opcional
-*.aux
-*.out
-*.toc
-*.gz
-*.log
-*.fdb_latexmk
-*.fls
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
