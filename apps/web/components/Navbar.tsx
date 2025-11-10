@@ -12,7 +12,7 @@ export function Navbar() {
         <a href="mailto:martinchipoco@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/martín-jesús-chipoco" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="https://github.com/Noothowl" target="_blank" rel="noreferrer">GitHub</a>
-        <a className="btn-primary" href="/cv.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
+        <a className="btn-primary" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/cv.pdf`} target="_blank" rel="noreferrer">Download CV (PDF)</a>
       </div>
     </nav>
   );
