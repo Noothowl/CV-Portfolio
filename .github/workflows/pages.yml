@@ -1,0 +1,72 @@
+name: Build CV (LaTeX) + Next.js Export + Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build CV and static site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install web deps
+        working-directory: apps/web
+        run: npm install
+
+      # Compila con XeLaTeX (usas fontspec)
+      - name: Build CV (XeLaTeX)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: martinchipoco-cv.tex
+          working_directory: .
+          latexmk_shell_escape: true
+          latexmk_use_xelatex: true
+
+      - name: Copy CV into web/public
+        run: |
+          mkdir -p apps/web/public
+          cp ./martinchipoco-cv.pdf apps/web/public/cv.pdf
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static export
+        env:
+          NEXT_PUBLIC_BASE_PATH: /CV-Portfolio
+        working-directory: apps/web
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/out
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
