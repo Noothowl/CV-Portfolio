@@ -57,7 +57,7 @@ export default function ProjectDetail({ params }: Params) {
         <div className="card__body">
           <p className="card__meta">{meta.period}</p>
           {meta.tags?.length ? (
-            <div className="tags" style={{ marginBottom: 12 }}>
+            <div className="tags tags--mb">
               {meta.tags.map((t, i) => <span key={i} className="pill gray">{t}</span>)}
             </div>
           ) : null}

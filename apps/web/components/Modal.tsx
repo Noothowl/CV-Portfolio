@@ -34,7 +34,7 @@ export function Modal({
       >
         <div className="modal-head">
           <strong style={{ fontSize: 18 }}>{title}</strong>
-          <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+          <button className="btn-secondary" onClick={onClose} aria-label="Close">✕</button>
         </div>
         <div className="modal-body">{children}</div>
       </div>

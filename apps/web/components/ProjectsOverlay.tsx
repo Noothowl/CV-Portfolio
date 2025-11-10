@@ -36,7 +36,7 @@ export default function ProjectsOverlay({ metas }: { metas: ProjectFrontMatter[]
                 <Link href={`/projects/${meta.slug}`} className="btn-primary">
                     Full Screen Display
                 </Link>
-                <button className="modal-close" onClick={close} aria-label="Close">
+                <button className="btn-secondary" onClick={close} aria-label="Close">
                     Close
                 </button>
   </div>
@@ -53,7 +53,7 @@ export default function ProjectsOverlay({ metas }: { metas: ProjectFrontMatter[]
           <p className="card__meta">{meta.period}</p>
 
           {meta.tags?.length ? (
-            <div className="tags" style={{ marginBottom: 12 }}>
+            <div className="tags tags--mb">
               {meta.tags.map((t, i) => (
                 <span key={i} className="pill gray">
                   {t}

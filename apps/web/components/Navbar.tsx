@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export function Navbar() {
   return (
-    <nav className="nav header">
+    <nav className="nav">
       <div>
-        <ul> <h1 className="display">Martín Jesús Chipoco - Portfolio</h1></ul>
+        <ul> <h1 className="display brand">Martín Jesús Chipoco - Portfolio</h1></ul>
         <ul> <p className="dim">Unreal Engine & Software Developer | Computer Engineer</p></ul>
       </div>
       <div className="nav-right">
