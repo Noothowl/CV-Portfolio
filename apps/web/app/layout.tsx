@@ -4,9 +4,9 @@ import type { Metadata } from 'next';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const metadata: Metadata = {
-  title: 'Martín Jesús Chipoco — Portfolio',
-  description: 'Unreal Engine / Software Engineer — Projects & CV',
-  icons: { icon: `${base}/icon.png` },
+  title: 'Martín Jesús Chipoco',
+  description: 'Unreal Engine & Software Developer | Computer Engineer — Site for Projects & CV',
+  icons: { icon: `${base}images/icon.png` },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
