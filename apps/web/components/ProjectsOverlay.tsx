@@ -1,6 +1,6 @@
-// apps/web/components/ProjectsOverlay.tsx
 "use client";
 
+import { publicPath } from "@/lib/publicPath";
 import { useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -45,7 +45,7 @@ export default function ProjectsOverlay({ metas }: { metas: ProjectFrontMatter[]
         <div className="modal-body">
           <div className="card__thumb" style={{ marginBottom: 12 }}>
             <img
-              src={meta.media?.hero?.ref ?? "/images/placeholder.jpg"}
+              src={publicPath(meta.media?.hero?.ref) || publicPath("/images/placeholder.jpg")}
               alt={meta.title}
             />
           </div>
