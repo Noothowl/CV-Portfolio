@@ -37,7 +37,7 @@ export function Card({ title, thumbnail, period, tags = [], href }: CardProps) {
 
   // Linkeable o no linkeable, según `href`
   return href ? (
-    <Link className="card card--link" href={href} aria-label={title}>
+    <Link className="card card--link" href={href} aria-label={title} scroll={false}>
       <Inner />
     </Link>
   ) : (

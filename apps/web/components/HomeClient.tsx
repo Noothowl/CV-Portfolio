@@ -1,4 +1,3 @@
-// apps/web/app/components/HomeClient.tsx
 "use client";
 
 import { useMemo, useState } from "react";

@@ -33,7 +33,7 @@ export default function ProjectsOverlay({ metas }: { metas: ProjectFrontMatter[]
         <div className="modal-head">
            <h2 style={{ margin: 0, flex: 1 }}>{meta.title}</h2>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <Link href={`/projects/${meta.slug}`} className="btn-primary">
+                <Link href={`/projects/${meta.slug}`} className="btn-primary" scroll={false}>
                     Full Screen Display
                 </Link>
                 <button className="btn-secondary" onClick={close} aria-label="Close">
@@ -47,7 +47,7 @@ export default function ProjectsOverlay({ metas }: { metas: ProjectFrontMatter[]
             <img
               src={publicPath(meta.media?.hero?.ref) || publicPath("/images/placeholder.jpg")}
               alt={meta.title}
-            />
+             loading="lazy" decoding="async" draggable="false"/>
           </div>
 
           <p className="card__meta">{meta.period}</p>

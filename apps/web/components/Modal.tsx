@@ -8,7 +8,21 @@ export function Modal({
   useEffect(() => {
     if (!open) return;
     const prev = document.activeElement as HTMLElement | null;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { onClose(); return; }
+      if (e.key === "Tab" && ref.current) {
+        const focusables = ref.current.querySelectorAll<HTMLElement>(
+          'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length) {
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          const active = document.activeElement as HTMLElement | null;
+          if (e.shiftKey && active === first) { last.focus(); e.preventDefault(); }
+          else if (!e.shiftKey && active === last) { first.focus(); e.preventDefault(); }
+        }
+      }
+    };
     document.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -27,13 +41,13 @@ export function Modal({
         className="modal"
         role="dialog"
         aria-modal="true"
-        aria-label={title}
+        aria-labelledby="modal-title"
         ref={ref}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-head">
-          <strong style={{ fontSize: 18 }}>{title}</strong>
+          <strong id="modal-title" style={{ fontSize: 18 }}>{title}</strong>
           <button className="btn-secondary" onClick={onClose} aria-label="Close">✕</button>
         </div>
         <div className="modal-body">{children}</div>

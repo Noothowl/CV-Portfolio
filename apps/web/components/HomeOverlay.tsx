@@ -37,7 +37,7 @@ export default function HomeOverlay({ metas }: { metas: ProjectFrontMatter[] }) 
             <img
                   src={publicPath(meta.media?.hero?.ref) || publicPath("/images/placeholder.jpg")}
                   alt={meta.title}
-            />
+             loading="lazy" decoding="async" draggable="false"/>
           </div>
 
           <p className="card__meta">{meta.period}</p>

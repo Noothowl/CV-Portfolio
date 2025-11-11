@@ -205,7 +205,9 @@ a.card--link, .card--link:hover { text-decoration: none; }
 .nav {
   display:flex; align-items:center; justify-content:space-between; gap:12px;
   margin-bottom:16px;
-  margin-right: 50px;;
+  margin-top:16px;
+  margin-right: 50px;
+  margin-left: 20px;
 }
 .nav-right { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
 .brand { font-weight:800; letter-spacing:.2px; }

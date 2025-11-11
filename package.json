@@ -1,11 +1,6 @@
 {
   "name": "cv-portfolio",
   "private": true,
-  "scripts": {
-    "scaffold": "node scripts/scaffold.js",
-    "scaffold:clean": "node scripts/scaffold.js --force",
-    "scaffold:structure": "node scripts/scaffold.js --only-structure"
-  },
   "version": "1.0.0",
   "description": "Monorepo that deploys a portfolio Next.js **static** and keeps LaTeX→PDF. The CI compiles the PDF and copy to btn.",
   "main": "index.js",
